@@ -3,7 +3,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Arxiv Sanity Preserver</title>
+<title>Arxiv Sanity Preserver for Statistics</title>
 
 <!-- MathJax -->
 <script type="text/x-mathjax-config">
@@ -188,8 +188,8 @@ $(document).ready(function(){
 	<a href="/">
 	<div id="tittxt">
 		<h1>Arxiv Sanity Preserver</h1>
-		Built in spare time by <a href="https://twitter.com/karpathy">@karpathy</a> to accelerate research.<br>
-		Serving last {{ totpapers }} papers from cs.[CV|CL|LG|AI|NE]/stat.ML
+		Built in spare time by <a href="https://twitter.com/karpathy">@karpathy</a> to accelerate research, adapted by <a href="https://patvoss.me">@pvossler</a> for Statistics.<br>
+		Serving last {{ totpapers }} papers from stat.[<a href="http://arivx-sanity-preserver-stats.patvoss.me/search?q=stat.AP">AP</a>|<a href="http://arivx-sanity-preserver-stats.patvoss.me/search?q=stat.CO">CO</a>|<a href="http://arivx-sanity-preserver-stats.patvoss.me/search?q=stat.ML">ML</a>|<a href="http://arivx-sanity-preserver-stats.patvoss.me/search?q=stat.ME">ME</a>|<a href="http://arivx-sanity-preserver-stats.patvoss.me/search?q=stat.TH">TH</a>]
 	</div>
 	</a>
 </div>
@@ -220,7 +220,7 @@ $(document).ready(function(){
   <div id="search_hint"></div>
 </div>
 
-{% if show_prompt == "yes" %}
+<!-- {% if show_prompt == "yes" %}
 <div id="prompt" style="background-color:#f6ff7a; padding:10px; width:980px; margin-left:auto; margin-right:auto; font-size:14px;">
 Hey there {{ g.user.username }}, sorry to interrupt. Arxiv-sanity costs a non-negligible amount of money to host. 
 If you love the site, please consider pitching in:
@@ -232,7 +232,7 @@ If you love the site, please consider pitching in:
   </form>
 To nuke this message away for a long time click <span id="goaway" style="text-decoration: underline;cursor: pointer;">here</span>.
 </div>
-{% endif %}
+{% endif %} -->
 
 <div id="pagebar">
   <div class="pagelink" id="tabrecent"><a href="/">most recent</a></div>
