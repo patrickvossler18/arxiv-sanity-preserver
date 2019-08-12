@@ -12,6 +12,7 @@ from hashlib import md5
 from flask import Flask, request, session, url_for, redirect, \
      render_template, abort, g, flash, _app_ctx_stack
 from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 from werkzeug import check_password_hash, generate_password_hash
 import pymongo
 
