@@ -27,7 +27,7 @@ else:
   SECRET_KEY = 'devkey, should be in a file'
 app = Flask(__name__)
 app.config.from_object(__name__)
-limiter = Limiter(app, global_limits=["100 per hour", "20 per minute"])
+limiter = Limiter(app, global_limits=["100 per hour", "20 per minute"],key_func=get_remote_address)
 
 # -----------------------------------------------------------------------------
 # utilities for database interactions 
