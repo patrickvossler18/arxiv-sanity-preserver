@@ -710,8 +710,8 @@ if __name__ == "__main__":
     # log_file_filename = "/var/log/arxiv-sanity.log"
     # handler = logging.FileHandler(log_file_filename)
     # app_log = logging.getLogger("tornado.general")
-    # enable_pretty_logging()
-    app_log.addHandler(handler)
+    enable_pretty_logging()
+    # app_log.addHandler(handler)
     tornado.options.options['log_file_prefix'].set('/var/log/arxiv-sanity.log')
     tornado.options.parse_command_line()
     http_server = HTTPServer(WSGIContainer(app))
