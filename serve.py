@@ -708,12 +708,29 @@ if __name__ == "__main__":
     import tornado.options
     import logging
     from logging.handlers import RotatingFileHandler
+    enable_pretty_logging()
 
-    log_path = "/var/log/arxiv-sanity.log"
+    log_path_access = "/var/log/arxiv-sanity-access.log"
     logger_ = logging.getLogger("tornado.access")
     logger_.setLevel(logging.INFO)
     logger_.propagate = False
-    handler = RotatingFileHandler(log_path, maxBytes=1024*1024*1024, backupCount=3)
+    handler = RotatingFileHandler(log_path_access, maxBytes=1024*1024*1024, backupCount=3)
+    handler.setFormatter(logging.Formatter("[%(name)s][%(asctime)s][%(levelname)s][%(pathname)s:%(lineno)d] > %(message)s"))
+    logger_.addHandler(handler)
+
+    log_path_general = "/var/log/arxiv-sanity-general.log"
+    logger_ = logging.getLogger("tornado.general")
+    logger_.setLevel(logging.INFO)
+    logger_.propagate = False
+    handler = RotatingFileHandler(log_path_general, maxBytes=1024*1024*1024, backupCount=3)
+    handler.setFormatter(logging.Formatter("[%(name)s][%(asctime)s][%(levelname)s][%(pathname)s:%(lineno)d] > %(message)s"))
+    logger_.addHandler(handler)
+
+    log_path_application = "/var/log/arxiv-sanity-application.log"
+    logger_ = logging.getLogger("tornado.application")
+    logger_.setLevel(logging.INFO)
+    logger_.propagate = False
+    handler = RotatingFileHandler(log_path_application, maxBytes=1024*1024*1024, backupCount=3)
     handler.setFormatter(logging.Formatter("[%(name)s][%(asctime)s][%(levelname)s][%(pathname)s:%(lineno)d] > %(message)s"))
     logger_.addHandler(handler)
     # import logging
