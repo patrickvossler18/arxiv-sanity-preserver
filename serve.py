@@ -705,12 +705,15 @@ if __name__ == "__main__":
     from tornado.httpserver import HTTPServer
     from tornado.ioloop import IOLoop
     from tornado.log import enable_pretty_logging
-    import logging
-    log_file_filename = "/var/log/arxiv-sanity.log"
-    handler = logging.FileHandler(log_file_filename)
-    app_log = logging.getLogger("tornado.general")
-    enable_pretty_logging()
+    import tornado.options
+    # import logging
+    # log_file_filename = "/var/log/arxiv-sanity.log"
+    # handler = logging.FileHandler(log_file_filename)
+    # app_log = logging.getLogger("tornado.general")
+    # enable_pretty_logging()
     app_log.addHandler(handler)
+    tornado.options.options['log_file_prefix'].set('/var/log/arxiv-sanity.log')
+    tornado.options.parse_command_line()
     http_server = HTTPServer(WSGIContainer(app))
     http_server.listen(args.port)
     IOLoop.instance().start()
